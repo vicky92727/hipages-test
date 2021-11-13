@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.container-sm {
+  background-color: #eee;
+}
+.nav {
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+.nav-link {
+  color: #000000 !important;
+  background-color: #fff !important;
+  border-radius: unset;
+  border-right: 1px solid #eee;
+}
+
+.nav-link:hover {
+  color: #000000 !important;
+  background-color: #fff !important;
+  border-radius: unset;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link
+{
+  color: #000000 !important;
+  background-color: #fff !important;
+  border-bottom: 3px solid #ff9800;
+  border-radius: unset;
+  border-right: 1px solid #eee;
+  border-left: 1px solid #eee;
+
+}
+
+.accept {
+    color: #fff !important;
+    background-color: #ff9800 !important;
+    border-color: #ff9800 !important;
+    border-radius: unset !important;
+    border-bottom: 1px solid #d68c1d !important;
+    font-weight: 600 !important;
+}
+.decline {
+  color: rgb(190, 182, 182) !important;
+  background-color: #eee !important;
+  border-color: #eee !important;
+  border-radius: unset !important;
+  border-bottom: 1px solid #e4e0db !important;
+  font-weight: 600 !important;
+}
+.price {
+  color: rgb(117, 117, 117);
+  font-weight: 600;
+  padding-left: 20px;
+}
+.lead {
+  color: #bdbdbd;
+  font-size: 15px;
+}
+.card-text {
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+}
+.avatar {
+  display: flex;
+  padding: 10px;
+  width: 55px;
+  height: 55px;
+  border: 1px solid;
+  border-radius: 50%;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 20px;
+  color: #fff;
+  background: #ff9800;
+}
+.head-content {
+  display: flex;
+  padding-left: 10px;
+  border-bottom: 1px solid #eee;
+}
+.title-date {
+  padding-left: 20px;
+}
+.card-title {
+  margin-bottom: 0px !important;
+}
+.date-time {
+  color: #bdbdbd;
+}
+.loc-cat-id {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+}
+.location {
+  padding-right: 10px;
+  color: #bdbdbd;
+  margin-right: 5px;
+}
+.category {
+  padding-right: 10px;
+  color: #bdbdbd;
+  margin-right: 5px;
+}
+.jobid,.card-text {
+  color: #bdbdbd;
+}
+.card {
+  margin-bottom: 10px;
+}
