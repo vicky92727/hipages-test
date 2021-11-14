@@ -61,7 +61,12 @@ This will create a dockerized stack for a backend in Laravel and frontend in Rea
     $ php artisan migrate:fresh --seed
     $ php artisan key:generate
     ```
+    **Backend Testing**
+4.1 To run the unit test simply run following command (Note: don't forget to run migrations after running this command)
+    ```
+    $ composer test
 
+    ```
 5. That's it! Navigate to [http://localhost](http://localhost) to access the application backend.
 5. That's it! Navigate to [http://localhost:8080/](http://localhost:8080/) to access the application frontend.
 

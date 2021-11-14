@@ -27,10 +27,11 @@ class JobController extends Controller
         $invitedLeads = $this->jobRepository->getInvitedLeads();
         $acceptedLeads = $this->jobRepository->getAcceptedleads();
 
-        return [
+        $leads =  [
             'invited' => $invitedLeads,
             'accepted' => $acceptedLeads
         ];
+        return response()->json($leads, 200);
     }
 
     /**
@@ -65,7 +66,7 @@ class JobController extends Controller
     public function update(Request $request, $id)
     {
         $updatedRec = $this->jobRepository->updateLeads($request,$id);
-        return $updatedRec;
+        return response()->json($updatedRec, 200);
     }
 
     /**
