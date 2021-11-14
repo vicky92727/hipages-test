@@ -1,26 +1,28 @@
-# Laravel/Lumen Docker Scaffold
+# hipages Full Stack Engineer Tech Challenge
 
 ### **Description**
 
-This will create a dockerized stack for a Laravel/Lumen application, consisted of the following containers:
+This will create a dockerized stack for a backend in Laravel and frontend in Reactjs application, consisted of the following containers:
 -  **app**, your PHP application container
 
         Nginx, PHP7.4 PHP7.4-fpm, Composer, NPM, Node.js v10.x
     
 -  **mysql**, MySQL database container ([mysql](https://hub.docker.com/_/mysql/) official Docker image)
-
+-  **web-client**, Reactjs container 
 #### **Directory Structure**
 ```
-+-- src <project root>
++-- src <Laravel Backend>
 +-- resources
 |   +-- default
 |   +-- nginx.conf
 |   +-- supervisord.conf
 |   +-- www.conf
 +-- .gitignore
++-- default.conf
 +-- Dockerfile
 +-- docker-compose.yml
-+-- readme.md <this file>
++-- Solutions.md <this file>
++-- web-client <Reactjs Frontend>
 ```
 
 ### **Setup instructions**
@@ -54,21 +56,14 @@ This will create a dockerized stack for a Laravel/Lumen application, consisted o
 
     ```
     $ docker exec -it app bash
-    $ composer create-project --prefer-dist laravel/laravel .
+    $ composer install
     $ nano .env
-    $ php artisan migrate --seed
+    $ php artisan migrate:fresh --seed
+    $ php artisan key:generate
     ```
 
-    **Lumen**
-
-    ```
-    $ docker exec -it app bash
-    $ composer create-project --prefer-dist laravel/lumen .
-    $ nano .env
-    $ php artisan migrate --seed
-    ```
-
-5. That's it! Navigate to [http://localhost](http://localhost) to access the application.
+5. That's it! Navigate to [http://localhost](http://localhost) to access the application backend.
+5. That's it! Navigate to [http://localhost:8080/](http://localhost:8080/) to access the application frontend.
 
 **Default configuration values** 
 
