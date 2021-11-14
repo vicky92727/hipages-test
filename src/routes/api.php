@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('leads', 'App\Http\Controllers\JobController@index');
+Route::put('leads/{id}', 'App\Http\Controllers\JobController@update');

@@ -60,7 +60,7 @@ RUN apt-get install -y nginx
 
 ADD resources/default /etc/nginx/sites-enabled/
 ADD resources/nginx.conf /etc/nginx/
-
+COPY default.conf /etc/nginx/conf.d/default.conf
 #------------- Composer & laravel configuration ----------------------------------------------------
 
 # Install composer

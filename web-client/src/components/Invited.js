@@ -4,34 +4,33 @@ import { faMapMarkerAlt, faBriefcase } from '@fortawesome/free-solid-svg-icons'
 
 class Invited extends Component {
     render (){
-   return <div className="card"><div className="card-body">
+        return <div>
+    {this.props.invited.map((invite) => (<div className="card">
+       <div className="card-body">
             <div className="head-content">
                 <div className="avatar">A</div>
                 <div className="title-date">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="date-time">Januar 4 @ 2:37pm</p>
+                    <h5 className="card-title">{invite.contact_name}</h5>
+                    <p className="date-time">{invite.created_at}</p>
                 </div>
             </div>
             <div className="loc-cat-id">
-                <div className="location"><FontAwesomeIcon icon={faMapMarkerAlt} />&nbsp;Sydney 2020</div>
-                <div className="category"><FontAwesomeIcon icon={faBriefcase} />&nbsp;Carpenter</div>
-                <div className="jobid">Job ID: 552212</div>
+                <div className="location"><FontAwesomeIcon icon={faMapMarkerAlt} />&nbsp;{invite.suburb.name}</div>
+                <div className="category"><FontAwesomeIcon icon={faBriefcase} />&nbsp;{invite.category.name}</div>
+                <div className="jobid">Job ID: {invite.id}</div>
             </div>
-            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p className="card-text">{invite.description}</p>
             <div className="row">
-                <div className="col-1">
-                    <a href="#" className="btn btn-primary accept">Accept</a>
-                </div>
-                <div className="col-1">
-                    <a href="#" className="btn btn-primary decline">Decline</a>
-                </div>
-                <div className="col float-left">
-                    <span className="price">$89</span><span className="lead"> Lead invitation</span>
+                <div className="col-sm-12">
+                    <a onClick={() => this.props.onClick(invite.id,'accepted')} className="btn btn-primary btn-md center-block accept">Accept</a>
+                    <a onClick={() => this.props.onClick(invite.id,'declined')} className="btn btn-primary btn-md center-block decline">Decline</a>
+                    <span className="price">${invite.price}</span><span className="leads"> Lead invitation</span>
                 </div>
             </div>
         </div>
     </div>
-
+    ))}
+    </div>
     }
 }
 

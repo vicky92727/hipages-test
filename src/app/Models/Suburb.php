@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Job;
 
-class Categories extends Model
+class Suburb extends Model
 {
     use HasFactory;
 
@@ -16,7 +17,11 @@ class Categories extends Model
     */
     protected $fillable = [
     	'name',
-    	'parent_category_id'
+    	'postcode'
     ];
-    
+
+    public function jobs(){
+        return $this->hasMany(Job::class);
+    }
+
 }

@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Suburbs;
+use App\Models\Suburb;
 
 class SuburbSeeder extends Seeder
 {
@@ -38,7 +38,7 @@ class SuburbSeeder extends Seeder
         ];
 
          foreach ($suburbs as $suburb) {
-            Suburbs::create($suburb);
+            Suburb::create($suburb);
         }
     }
 }

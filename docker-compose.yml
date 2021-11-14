@@ -18,7 +18,8 @@ services:
     secrets:
       - db_root_password
       - db_password
-
+    networks:
+      - my-network-name
   app:
     build: .
     container_name: app
@@ -30,6 +31,8 @@ services:
       - "80:80"
     depends_on:
       - mysql
+    networks:
+      - my-network-name
   web-client:
     build:
       context: ./web-client
@@ -38,6 +41,8 @@ services:
       - "8080:3000"
     expose:
       - "3000"
+    networks:
+      - my-network-name
     volumes:
       - ./web-client:/opt/app:delegated
       # bind-mounting these two files in will let you add packages during development without rebuilding
@@ -63,4 +68,4 @@ volumes:
   notused:
 
 networks:
-  default:
+  my-network-name:

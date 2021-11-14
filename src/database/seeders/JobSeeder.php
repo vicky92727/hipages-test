@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Jobs;
+use App\Models\Job;
 
 class JobSeeder extends Seeder
 {
@@ -75,7 +75,7 @@ Morbi rutrum felis lacinia eros tincidunt scelerisque. Morbi aliquam porttitor s
         ];
 
          foreach ($jobs as $job) {
-            Jobs::create($job);
+            Job::create($job);
         }
     }
 }
