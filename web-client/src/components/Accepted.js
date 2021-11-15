@@ -5,10 +5,10 @@ import { faMapMarkerAlt, faBriefcase, faPhoneAlt, faMobileAlt, faEnvelope } from
 class Accepted extends Component {
     render (){
         return <div>
-    {this.props.accepted.map((accept) => (<div className="card">
+    {this.props.accepted.map((accept) => (<div key={accept.id} className="card">
        <div className="card-body">
             <div className="head-content">
-                <div className="avatar">A</div>
+                <div className="avatar">{accept.contact_name.charAt(0)}</div>
                 <div className="title-date">
                     <h5 className="card-title">{accept.contact_name}</h5>
                     <p className="date-time">{accept.created_at}</p>

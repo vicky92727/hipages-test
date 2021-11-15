@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import Navigation from "./components/Navigation";
 import Invited from "./components/Invited";
 import Accepted from "./components/Accepted";
+import { BASE_URL, STATUS_NEW, STATUS_ACCEPTED, STATUS_DECLINED } from "./config";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: "Loading all modules...",
       invited: [],
       accepted: [],
       invitedTab: true,
@@ -20,14 +20,17 @@ class App extends Component {
     this.setState({invited: this.state.invited.filter(function(invite) { 
       return invite.id !== id 
     })});
-    if(status == "accepted") {
+    if(status == STATUS_ACCEPTED) {
       this.setState({accepted: this.state.invited.filter(function(invite) { 
         return invite.id == id 
       })});
     }
-   
+    this.updatLeadsCall(id,status);
+  }
 
-    fetch("http://localhost/api/leads/"+id, {
+
+  async updatLeadsCall(id,status) {
+    await fetch(BASE_URL+"leads/"+id, {
       method: "put",
       headers: {
         "Content-Type": "application/json"
@@ -39,9 +42,7 @@ class App extends Component {
        var acceptedData = res.accepted
        this.setState({accepted : acceptedData})
     });
-
   }
-
   onClickHandler(cname) {
     if(cname === "invited") {
       this.setState({ invitedTab: true,  acceptedTab: false });
@@ -49,8 +50,8 @@ class App extends Component {
       this.setState({ invitedTab: false, acceptedTab: true });
     }
   }
-  getData() {
-    fetch("http://localhost/api/leads")
+  async getData() {
+    await fetch(BASE_URL+"leads")
     .then(response => response.json())
     .then(res => {
       var invitedData = res.invited
