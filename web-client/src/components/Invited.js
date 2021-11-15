@@ -5,7 +5,7 @@ import { faMapMarkerAlt, faBriefcase } from '@fortawesome/free-solid-svg-icons'
 class Invited extends Component {
     render (){
         return <div>
-    {this.props.invited.map((invite) => (<div key={invite.id} className="card">
+    {this.props.invited.length > 0 ? (this.props.invited.map((invite) => (<div key={invite.id} className="card">
        <div className="card-body">
             <div className="head-content">
                 <div className="avatar">{invite.contact_name.charAt(0)}</div>
@@ -29,7 +29,7 @@ class Invited extends Component {
             </div>
         </div>
     </div>
-    ))}
+    ))) : <div className="card-body"><div className="head-content">No more Invited leads</div></div>}
     </div>
     }
 }

@@ -5,7 +5,7 @@ import { faMapMarkerAlt, faBriefcase, faPhoneAlt, faMobileAlt, faEnvelope } from
 class Accepted extends Component {
     render (){
         return <div>
-    {this.props.accepted.map((accept) => (<div key={accept.id} className="card">
+    {this.props.accepted.length > 0 ? (this.props.accepted.map((accept) => (<div key={accept.id} className="card">
        <div className="card-body">
             <div className="head-content">
                 <div className="avatar">{accept.contact_name.charAt(0)}</div>
@@ -28,7 +28,7 @@ class Accepted extends Component {
             
         </div>
     </div>
-    ))}
+    ))) : <div className="card-body"><div className="head-content">No more accepted leads</div></div>}
     </div>
     }
 }

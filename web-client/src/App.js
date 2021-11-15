@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Navigation from "./components/Navigation";
 import Invited from "./components/Invited";
 import Accepted from "./components/Accepted";
-import { BASE_URL, STATUS_NEW, STATUS_ACCEPTED, STATUS_DECLINED } from "./config";
-
+import { getService, putService } from "./service/base.service";
+import { status } from "./constant";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +20,7 @@ class App extends Component {
     this.setState({invited: this.state.invited.filter(function(invite) { 
       return invite.id !== id 
     })});
-    if(status == STATUS_ACCEPTED) {
+    if(status == status.ACCEPTED) {
       this.setState({accepted: this.state.invited.filter(function(invite) { 
         return invite.id == id 
       })});
@@ -30,34 +30,35 @@ class App extends Component {
 
 
   async updatLeadsCall(id,status) {
-    await fetch(BASE_URL+"leads/"+id, {
-      method: "put",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({status : status}),
-    })
-    .then(response => response.json())
-    .then(res => {
-       var acceptedData = res.accepted
-       this.setState({accepted : acceptedData})
-    });
+    try {
+      const body = {status : status}
+      const res = await putService(`leads/${id}`,body);
+      this.setState({accepted : res.data.accepted})
+    } catch (error) {
+      console.log(error)
+    }
+
   }
   onClickHandler(cname) {
-    if(cname === "invited") {
-      this.setState({ invitedTab: true,  acceptedTab: false });
-    } else if(cname === "accepted") {
-      this.setState({ invitedTab: false, acceptedTab: true });
+
+    switch (cname) {
+      case status.INVITED:
+        this.setState({ invitedTab: true,  acceptedTab: false });
+        break;
+      case status.ACCEPTED:
+        this.setState({ invitedTab: false, acceptedTab: true });
+        break;
+        default:
+        break;
     }
   }
   async getData() {
-    await fetch(BASE_URL+"leads")
-    .then(response => response.json())
-    .then(res => {
-      var invitedData = res.invited
-      var acceptedData = res.accepted
-      this.setState({invited : invitedData, accepted : acceptedData})
-    });
+    try {
+      const res = await getService('leads');
+      this.setState({invited : res.data.invited, accepted : res.data.accepted})
+    } catch (error) {
+      console.log(error)
+    }
   }
   componentDidMount() {
    this.getData()
