@@ -6351,7 +6351,7 @@
     "react-is" "^16.3.2"
     "warning" "^4.0.0"
 
-"prop-types@^15.5.10", "prop-types@^15.6.2", "prop-types@^15.7.2":
+"prop-types@^15.5.10", "prop-types@^15.6.1", "prop-types@^15.6.2", "prop-types@^15.7.2":
   "integrity" "sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ=="
   "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz"
   "version" "15.7.2"
@@ -6580,6 +6580,13 @@
   "resolved" "https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz"
   "version" "3.0.4"
 
+"react-paginate@^8.0.0":
+  "integrity" "sha512-l5uNYWqVIhFBljQoyLuMnZ8ykCdoTz6aYfg9+fUdtWy/H9rELBgVBPEA99jVpTsBxqAxXKBZ/sdDrdN4b0hsvg=="
+  "resolved" "https://registry.npmjs.org/react-paginate/-/react-paginate-8.0.0.tgz"
+  "version" "8.0.0"
+  dependencies:
+    "prop-types" "^15.6.1"
+
 "react-scripts@1.1.4":
   "integrity" "sha512-UVZIujEIT9BGbx+NGvyfS92eOrNIIpqqFi1FP7a0O9l94A/XV7bhPk70SfDKaXZouCX81tFdXo0948DjhCEgGw=="
   "resolved" "https://registry.npmjs.org/react-scripts/-/react-scripts-1.1.4.tgz"
@@ -6636,7 +6643,7 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@^16.14.0", "react@^16.4.2", "react@^16.8.0 || ^17.0.0-rc.1", "react@>=0.14.0", "react@>=15.0.0", "react@>=16.14.0", "react@>=16.3.2", "react@>=16.6.0", "react@>=16.8.0", "react@>=16.x":
+"react@^16 || ^17", "react@^16.14.0", "react@^16.4.2", "react@^16.8.0 || ^17.0.0-rc.1", "react@>=0.14.0", "react@>=15.0.0", "react@>=16.14.0", "react@>=16.3.2", "react@>=16.6.0", "react@>=16.8.0", "react@>=16.x":
   "integrity" "sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g=="
   "resolved" "https://registry.npmjs.org/react/-/react-16.14.0.tgz"
   "version" "16.14.0"

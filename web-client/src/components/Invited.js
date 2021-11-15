@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt, faBriefcase } from '@fortawesome/free-solid-svg-icons'
+import ReactPaginate from "react-paginate";
 
 class Invited extends Component {
     render (){
@@ -30,6 +31,16 @@ class Invited extends Component {
         </div>
     </div>
     ))) : <div className="card-body"><div className="head-content">No more Invited leads</div></div>}
+    {this.props.invited.length > 0 ? <ReactPaginate
+        previousLabel={'prev'}
+        nextLabel={'next'}
+        activePage={this.props.invited.current_page}
+        pageCount={this.props.pageCount}
+        itemsCountPerPage={this.props.invited.per_page}
+        onPageChange={this.props.handleInvitedPageClick}
+        containerClassName={'pagination'}
+        activeClassName={'active'}
+        /> : ""}
     </div>
     }
 }

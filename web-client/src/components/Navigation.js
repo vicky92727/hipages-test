@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 
 class Navigation extends Component {
-    constructor(props) {
-        super(props);
-      }
+   
       render (){
           return  <nav className="nav nav-pills nav-fill">
           <a className={`nav-link ${this.props.invitedTab ? 'active' : ""}`} aria-current="page" onClick={() => this.props.onClickHandler('invited')} >Invited</a>

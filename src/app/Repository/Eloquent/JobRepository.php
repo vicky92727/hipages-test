@@ -29,20 +29,21 @@ class JobRepository extends BaseRepository implements JobRepositoryInterface
         $lead = $this->update($id, $data);
         if($data['status'] == $this->model::STATUS_ACCEPTED){
             $leads['accepted'] = $this->getAcceptedleads();
+            $leads['invited'] = $this->getInvitedLeads();
         }
         return $leads;
     }
     public function getInvitedLeads()
     {
         $status = $this->model->newJobStatus();
-        $invitedLeads = $this->model->where(['status' => $status])->with('suburb','category')->get();
+        $invitedLeads = $this->model->where(['status' => $status])->with('suburb','category')->orderBy('created_at', 'desc')->paginate(2);
         return $invitedLeads;
     }
 
     public function getAcceptedleads()
     {
         $status = $this->model->acceptedJobsStatus();
-        $acceptedleads = $this->model->where(['status' => $status])->with('suburb','category')->get();
+        $acceptedleads = $this->model->where(['status' => $status])->with('suburb','category')->orderBy('created_at', 'desc')->paginate(2);
         return $acceptedleads;
     }
 }

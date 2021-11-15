@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapMarkerAlt, faBriefcase, faPhoneAlt, faMobileAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt, faBriefcase, faPhoneAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import ReactPaginate from "react-paginate";
 
 class Accepted extends Component {
     render (){
@@ -29,6 +30,18 @@ class Accepted extends Component {
         </div>
     </div>
     ))) : <div className="card-body"><div className="head-content">No more accepted leads</div></div>}
+
+    {this.props.accepted.length > 0 ? <ReactPaginate
+        previousLabel={'prev'}
+        nextLabel={'next'}
+        activePage={this.props.accepted.current_page}
+        itemsCountPerPage={this.props.accepted.per_page}
+        totalItemsCount={this.props.accepted.total}
+        pageCount={this.props.pageCount}
+        onPageChange={this.props.handlePageClick}
+        containerClassName={'pagination'}
+        activeClassName={'active'}
+        /> : ""}
     </div>
     }
 }
